@@ -1,0 +1,49 @@
+<div class="login-wrapper">
+
+  <!-- LADO ESQUERDO -->
+  <div class="login-box">
+
+    <div class="logo">
+      <img src="/assets/logo.svg" alt="Logo"/>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <div class="input-group">
+        <span class="icon user"></span>
+        <input
+          type="text"
+          placeholder="Usuário ou e-mail"
+          formControlName="username"
+        />
+      </div>
+
+      <div class="input-group">
+        <span class="icon lock"></span>
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          placeholder="Senha"
+          formControlName="password"
+        />
+        <span
+          class="icon eye"
+          (click)="togglePassword()"
+        ></span>
+      </div>
+
+      <button class="btn-login" type="submit">
+        Entrar
+      </button>
+
+      <p class="forgot-password">
+        <a routerLink="/reset-password">Esqueceu a senha?</a>
+      </p>
+
+    </form>
+
+  </div>
+
+  <!-- LADO DIREITO (imagem) -->
+  <div class="login-image"></div>
+
+</div>
