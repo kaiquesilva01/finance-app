@@ -1,49 +1,39 @@
-<div class="login-wrapper">
+<div class="login-page">
+  <!-- Background cobrindo toda a tela -->
+  <div class="login-background"></div>
 
-  <!-- LADO ESQUERDO -->
-  <div class="login-box">
+  <!-- Overlay semi-transparente -->
+  <div class="login-overlay"></div>
 
-    <div class="logo">
-      <img src="/assets/logo.svg" alt="Logo"/>
+  <!-- Conteúdo (logo, formulário) -->
+  <div class="login-content">
+    <div class="brand">
+      <img src="../../../../assets/logo.png" alt="FinanceApp Logo" />
+      <h1>FinanceApp</h1>
     </div>
 
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <p class="subtitle">Financial management</p>
 
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
       <div class="input-group">
-        <span class="icon user"></span>
         <input
           type="text"
-          placeholder="Usuário ou e-mail"
           formControlName="username"
+          placeholder="Usuário ou e-mail"
         />
       </div>
 
       <div class="input-group">
-        <span class="icon lock"></span>
         <input
           [type]="showPassword ? 'text' : 'password'"
-          placeholder="Senha"
           formControlName="password"
+          placeholder="Senha"
         />
-        <span
-          class="icon eye"
-          (click)="togglePassword()"
-        ></span>
       </div>
 
-      <button class="btn-login" type="submit">
-        Entrar
-      </button>
+      <button type="submit" [disabled]="loginForm.invalid">Entrar</button>
 
-      <p class="forgot-password">
-        <a routerLink="/reset-password">Esqueceu a senha?</a>
-      </p>
-
+      <a href="#" class="forgot">Esqueceu a senha?</a>
     </form>
-
   </div>
-
-  <!-- LADO DIREITO (imagem) -->
-  <div class="login-image"></div>
-
 </div>
